@@ -11,18 +11,27 @@ export default class App extends React.Component{
   }
 
   componentDidMount() {
-    firebase.auth().signInAnonymously()
-      .then(() => {
-        this.setState({
-          isAuthenticated: true,
+    // firebase.auth().signInAnonymously()
+    //   .then(() => {
+    //     this.setState({
+    //       isAuthenticated: true,
+    //     });
+    //   });
+    const email = 'aaa@xxx.com';
+    const password = '123456';
+    firebase.auth().signInWithEmailAndPassword(email, password)
+    .then((result) => {
+      this.setState({
+        isAuthenticated: true,
         });
-      });
+      console.log(result, email, password);});
   }
   render() {
     // If the user has not authenticated
     if (!this.state.isAuthenticated) {
       return null;
     }
+   
     return (
         <Todos/>
     );
