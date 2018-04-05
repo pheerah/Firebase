@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Practice</string>
+    <string name="facebook_app_id">1736384699738614</string>
+    <string name="fb_login_protocol_scheme">1736384699738614</string>
 </resources>
