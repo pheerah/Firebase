@@ -14,7 +14,6 @@ import Container from './Container';
 import Button from './Button';
 import Label from './Label';
 import { fbLoginPermissions } from './src/constants/index';
-import Firebase from './src/config/firebase';
 import Auth from './src/config/auth';
 export default class Login extends Component {
 	constructor(props) {
@@ -52,26 +51,24 @@ export default class Login extends Component {
 		const email = this.state.email;
 		const password = this.state.password;
 		firebase.auth().signInWithEmailAndPassword(email, password)
-			.then((result) => {
+			.then(() => {
 				this.setState({
 					isAuthenticated: true,
 				});
-				console.log(result, email, password);
 				this.props.navigation.navigate('App');
 			});
         
 	}
 	handleFbLogin() {
+		
 		Auth.Facebook.login(fbLoginPermissions)
 			.then((token) => {
 				this.setState({
 					isAuthenticated: true,
 				});
 				this.props.navigation.navigate('App');
-				console.log(token);
-				Firebase.auth()
-					.signInWithCredential(Firebase.auth.FacebookAuthProvider.credential(token));
-				
+				firebase.auth()
+					.signInWithCredential(firebase.auth.FacebookAuthProvider.credential(token));
 				
 				
 			})
