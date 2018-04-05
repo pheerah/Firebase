@@ -15,7 +15,7 @@ class Todos extends React.Component {
         };
     }
 
-    updateTextInput(value) {
+    updateTextInput = (value) => {
         this.setState({ textInput: value });
     }
 
@@ -37,7 +37,7 @@ class Todos extends React.Component {
         this.unsubscribe();
     }
 
-    onCollectionUpdate (querySnapshot) {
+    onCollectionUpdate = (querySnapshot) => {
         const todos = [];
         querySnapshot.forEach((doc) => {
             const { title, complete } = doc.data();
