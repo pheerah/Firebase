@@ -13,7 +13,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Container from './Container';
 import Button from './Button';
 import Label from './Label';
-import { fbLoginPermissions } from './src/constants/index';
+import {fbLoginPermissions} from './src/constants/index'
 import Auth from './src/config/auth';
 export default class Login extends Component {
     constructor(props) {
